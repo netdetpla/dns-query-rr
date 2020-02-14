@@ -25,7 +25,7 @@ object Main {
             // domain ip
             for (rr in r.result) {
                 for (a in rr.aRecord) {
-                    if (!DatabaseHandler.findDomain2IP(rr.domain, a)) {
+                    if (DatabaseHandler.findDomain2IP(rr.domain, a)) {
                         insertDomainIPs.add(
                             BatchInsertDomainIP(
                                 rr.domain,

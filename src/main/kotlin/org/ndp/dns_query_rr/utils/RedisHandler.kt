@@ -40,7 +40,6 @@ object RedisHandler {
         )
         val results = ArrayList<MQResult>()
         for (c in content) {
-            logger.debug("c: $c")
             results.add(
                 mqResultAdapter.fromJson(c.body["result"]!!)!!
             )
