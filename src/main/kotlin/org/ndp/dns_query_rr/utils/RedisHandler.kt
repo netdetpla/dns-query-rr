@@ -39,13 +39,13 @@ object RedisHandler {
             XReadArgs.StreamOffset.lastConsumed(Settings.setting["key.result"] as String)
         )
         val results = ArrayList<MQResult>()
-        logger.debug("result size: ${results.size}")
         for (c in content) {
             results.add(
                 mqResultAdapter.fromJson(c.body["result"]!!)!!
             )
             consumedIDs.add(c.id)
         }
+        logger.debug("result size: ${results.size}")
         return results
     }
 
